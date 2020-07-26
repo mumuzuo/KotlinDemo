@@ -1,8 +1,6 @@
 package com.zuo.kotlindemo.learn
 
-import com.zuo.kotlindemo.utlis.HttpCallbackListener
-import com.zuo.kotlindemo.utlis.HttpUtil
-import kotlinx.coroutines.*
+import com.zuo.kotlindemo.utils.start
 
 /**
  * kotlin 学习，main 函数
@@ -11,23 +9,18 @@ import kotlinx.coroutines.*
  * @date 2020/7/1 11:47
  */
 fun main() {
-    runBlocking {
-        val address = "http://www.baidu.com/"
-        try {
-            val response = HttpUtil.request(address)
-            println(response)
-        } catch (e: Exception) {
-            println(e.message)
-        }
+
+    /*if ("hello world".startsWith("hello")) {
+        println("is true")
+    }*/
+
+
+    if ("hello world" start "hello") {
+        println("is true")
     }
+    println(getObjectType<String>())
+    println(getObjectType<Int>())
 }
 
-suspend fun repeatOut(times: Int) = coroutineScope {
-    repeat(times) {
-        launch {
-            println(it)
-        }
-    }
-}
 
 inline fun <reified T> getObjectType() = T::class.java

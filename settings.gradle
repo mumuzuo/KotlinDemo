@@ -1,2 +1,3 @@
+include ':Demo_Java'
 include ':app'
 rootProject.name = "KotlinDemo"
