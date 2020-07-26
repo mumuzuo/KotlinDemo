@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.zuo.kotlindemo.main.MainFragment"
+        android:label="fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_uavResultFragment"
+            app:destination="@id/uavResultFragment"
+            app:enterAnim="@anim/fragment_left_to_right_in"
+            app:exitAnim="@anim/fragment_right_to_left_out"
+            app:popEnterAnim="@anim/fragment_left_to_right_in"
+            app:popExitAnim="@anim/fragment_right_to_left_out" />
+        <action
+            android:id="@+id/action_mainFragment_to_msgListFragment"
+            app:destination="@id/msgListFragment"
+            app:enterAnim="@anim/fragment_left_to_right_in"
+            app:exitAnim="@anim/fragment_right_to_left_out"
+            app:popEnterAnim="@anim/fragment_left_to_right_in"
+            app:popExitAnim="@anim/fragment_right_to_left_out" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/msgListFragment"
+        android:name="com.zuo.kotlindemo.msg.MsgListFragment"
+        android:label="MsgListFragment">
+        <action
+            android:id="@+id/action_msgListFragment_to_msgFragment"
+            app:destination="@id/msgFragment"
+            app:enterAnim="@anim/fragment_left_to_right_in"
+            app:exitAnim="@anim/fragment_right_to_left_out"
+            app:popEnterAnim="@anim/fragment_left_to_right_in"
+            app:popExitAnim="@anim/fragment_right_to_left_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/msgFragment"
+        android:name="com.zuo.kotlindemo.msg.MsgFragment"
+        android:label="MsgFragment"
+        tools:layout="@layout/fragment_msg">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="zuo://www.zuo.com/msg/{msg}" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/uavResultFragment"
+        android:name="com.zuo.kotlindemo.uav.UavResultFragment"
+        android:label="fragment_uav_result"
+        tools:layout="@layout/fragment_uav_result">
+        <action
+            android:id="@+id/action_uavResultFragment_to_uavFragment"
+            app:destination="@id/uavFragment"
+            app:enterAnim="@anim/fragment_left_to_right_in"
+            app:exitAnim="@anim/fragment_right_to_left_out"
+            app:popEnterAnim="@anim/fragment_left_to_right_in"
+            app:popExitAnim="@anim/fragment_right_to_left_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/uavFragment"
+        android:name="com.zuo.kotlindemo.uav.UavFragment"
+        android:label="fragment_uav"
+        tools:layout="@layout/fragment_uav">
+        <!--传递参数-->
+        <argument
+            android:name="path"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.zuo.kotlindemo.LoginActivity"
+        android:label="LoginActivity" />
+
+</navigation>
